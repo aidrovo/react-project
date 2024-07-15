@@ -13,7 +13,6 @@ const AddProductModal = ({ show, handleClose, handleAddProduct, handleUpdateProd
 
   useEffect(() => {
     if (product) {
-      // Si hay un producto para editar, establecer los datos del producto en el estado
       setFormData({
         id: product.id,
         name: product.name,
@@ -37,7 +36,7 @@ const AddProductModal = ({ show, handleClose, handleAddProduct, handleUpdateProd
       let newProduct = { ...formData };
 
       if (!product) {
-        newProduct.id = Math.floor(Math.random() * 1000).toString(); // Convertir a cadena
+        newProduct.id = Math.floor(Math.random() * 1000).toString(); 
       }
 
       const url = product ? `http://localhost:3002/bp/products/${product.id}` : 'http://localhost:3002/bp/products';

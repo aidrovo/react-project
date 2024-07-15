@@ -3,11 +3,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Dropdown } from 'react-bootstrap';
 import TableComponent from './components/TableComponent';
 import AddProductModal from './components/AddProductModal';
-import ConfirmModal from './components/ConfirmDeleteModal'; // Componente para la confirmación de eliminación
+import ConfirmModal from './components/ConfirmDeleteModal';
 
 const App = () => {
   const [showModal, setShowModal] = useState(false);
-  const [showConfirmModal, setShowConfirmModal] = useState(false); // Estado para el modal de confirmación
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [data, setData] = useState([]);
   const [editProduct, setEditProduct] = useState(null);
 
@@ -31,7 +31,7 @@ const App = () => {
   const handleShowModal = () => setShowModal(true);
   const handleCloseModal = () => {
     setShowModal(false);
-    setEditProduct(null); // Limpiar el producto a editar al cerrar el modal
+    setEditProduct(null);
   };
 
   const handleAddProduct = (newProduct) => {
@@ -61,19 +61,19 @@ const App = () => {
 
   const handleEditProduct = (product) => {
     setEditProduct(product);
-    setShowModal(true); // Mostrar modal de edición
+    setShowModal(true);
   };
 
   const handleDeleteConfirmation = (productId) => {
     setShowConfirmModal(true);
-    setEditProduct(productId); // Guardar el ID del producto a eliminar
+    setEditProduct(productId);
   };
 
   const handleConfirmDelete = async () => {
     try {
-      await handleDeleteProduct(editProduct); // Eliminar el producto
-      setShowConfirmModal(false); // Cerrar modal de confirmación
-      setEditProduct(null); // Limpiar el ID del producto a eliminar
+      await handleDeleteProduct(editProduct);
+      setShowConfirmModal(false);
+      setEditProduct(null);
     } catch (error) {
       console.error('Error al eliminar el producto:', error);
     }
@@ -114,7 +114,6 @@ const App = () => {
       Cell: ({ row }) => (
         <Dropdown>
           <Dropdown.Toggle variant="secondary" id="dropdown-actions">
-            {/* Flecha hacia abajo para indicar el menú desplegable */}
             <span>&#9660;</span>
           </Dropdown.Toggle>
 
